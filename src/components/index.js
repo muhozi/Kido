@@ -1,8 +1,8 @@
-import Navbar from './navbar';
+import HomeNavbar from './navbar';
 import Input from './input';
 import Btn from './button';
 export {
-	Navbar,
+	HomeNavbar,
 	Input,
 	Btn,
 };

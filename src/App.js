@@ -14,7 +14,7 @@ import Join from './containers/Join';
 import Login from './containers/Login';
 import reducers from './reducers';
 import configureStore from './libs/configureStore';
-import {Navbar} from './components';
+import {HomeNavbar} from './components';
 
 
 
@@ -34,8 +34,8 @@ class App extends Component{
         <RouterWithRedux>
           <Scene key="root" hideNavBar>
             <Scene key="splash" component={Splash} hideNavBar={true} initial/>
-            <Scene key="join" component={Join} hideNavBar={false} navBar={Navbar} title="Join"/>
-            <Scene key="login" component={Login} hideNavBar={true} navBar={Navbar} title="Login"/>
+            <Scene key="join" component={Join} hideNavBar={false} navBar={HomeNavbar} title="Join"/>
+            <Scene key="login" component={Login} hideNavBar={true} navBar={HomeNavbar} title="Login"/>
           </Scene>
         </RouterWithRedux>
         

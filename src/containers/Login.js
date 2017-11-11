@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 import { StyleSheet, Text, View, TouchableOpacity, Switch } from 'react-native'
-
+import {Btn} from '../components'
 import AccountKit, { LoginButton, Color, StatusBarStyle } from 'react-native-facebook-account-kit'
-
+import styles from '../styles';
 class Login extends Component {
   state = {
     authToken: null,
@@ -52,9 +52,9 @@ class Login extends Component {
       //countryWhitelist: [ "AR", "BR", "US" ],
       //countryBlacklist: [ "BR" ],
       //defaultCountry: "AR"
-      initialEmail: 'example.com',
-      initialPhoneCountryPrefix: '+355',
-      initialPhoneNumber: '123-456-7890',
+      initialEmail: '',
+      initialPhoneCountryPrefix: '+250',
+      initialPhoneNumber: '7',
     })
   }
 
@@ -118,7 +118,7 @@ class Login extends Component {
     return (
       <View>
         <LoginButton
-          style={styles.button}
+          style={[styles.btn]}
           type="phone"
           onLogin={token => this.onLogin(token)}
           onError={e => this.onLogin(e)}
@@ -126,8 +126,8 @@ class Login extends Component {
           <Text style={styles.buttonText}>SMS</Text>
         </LoginButton>
 
-        <TouchableOpacity style={styles.button} onPress={() => this.onEmailLoginPressed()}>
-          <Text style={styles.buttonText}>Email</Text>
+        <TouchableOpacity onPress={() => this.onEmailLoginPressed()}>
+          <Btn title="Login with email" color="rgba(0,0,0,0.5)"/>
         </TouchableOpacity>
       </View>
     )
@@ -140,35 +140,5 @@ class Login extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  button: {
-    height: 50,
-    width: 300,
-    backgroundColor: 'aqua',
-    marginBottom: 10,
-  },
-  buttonText: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  label: {
-    fontSize: 20,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    marginTop: 20,
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-})
 
 export default Login

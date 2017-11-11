@@ -6,7 +6,7 @@ export default class Btn extends React.Component {
   render() {
     return (
     	<View style={styles.btn}>
-          <Text style={{color:'#fff'}}>{this.props.title}</Text>
+          <Text style={{color:this.props.color?this.props.color:'#fff'}}>{this.props.title}</Text>
       </View>
     );
   }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Text,View,Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable'
-class Navbar extends React.Component{
+class HomeNavbar extends React.Component{
   constructor(props) {
     super(props);
   }
@@ -19,4 +19,4 @@ class Navbar extends React.Component{
     );
   }
 }
-export default Navbar;
+export default HomeNavbar;
