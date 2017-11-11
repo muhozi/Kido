@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Kido</string>
+    <string name="fb_app_id">1873473649631640</string>
+	<string name="ak_client_token">a08f8c7de7c3f0f995dbac0296668d3d</string>
 </resources>
