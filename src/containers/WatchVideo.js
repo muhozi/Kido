@@ -53,7 +53,7 @@ class WatchVideo extends Component {
             onFullScreenExit={() => Orientation.lockToPortrait()}
             fullscreen={false}       // control whether the video should play in fullscreen or inline
             loop={true}             // control whether the video should loop when ended
-            apiKey="AIzaSyDGoMw4yo0ftuDADvrTjij5ru5RwqLjPmY" // ☻ Whatever I'll Change It, Hhhhh
+            apiKey="" // ☻ Whatever I'll Change It, Hhhhh
             onReady={e => this.setState({ isReady: true })}
             onChangeState={e => this.setState({ status: e.state })}
             onChangeQuality={e => this.setState({ quality: e.quality })}

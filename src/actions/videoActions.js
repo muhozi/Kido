@@ -23,7 +23,7 @@ export function fetchVideos() {
     dispatch(fetchingVideos());
     axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
       params: {
-        key : 'AIzaSyDGoMw4yo0ftuDADvrTjij5ru5RwqLjPmY',
+        key : '',
         playlistId : 'PL0-84-yl1fUkall6a14nqzXpG79-RgI1F', // Selected playlist ID
         part : 'snippet,id',
         order : 'date',
