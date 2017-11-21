@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
-
-import { StyleSheet, Text, View, TouchableOpacity, Switch } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Switch } from 'react-native';
+import {Actions} from "react-native-router-flux";
 import {Btn} from '../components'
-import AccountKit, { LoginButton, Color, StatusBarStyle } from 'react-native-facebook-account-kit'
+import AccountKit, { LoginButton, Color, StatusBarStyle } from 'react-native-facebook-account-kit';
 import styles from '../styles';
 class Login extends Component {
   state = {
-    authToken: null,
-    loggedAccount: null,
-  }
 
+  }
   componentWillMount() {
     this.configureAccountKit()
-
     AccountKit.getCurrentAccessToken()
       .then(token => {
         if (token) {
           AccountKit.getCurrentAccount().then(account => {
-            this.setState({
-              authToken: token,
-              loggedAccount: account,
-            })
+            Actions.home();
           })
         } else {
           console.log('No user account logged')
@@ -28,7 +22,6 @@ class Login extends Component {
       })
       .catch(e => console.log('Failed to get current access token', e))
   }
-
   configureAccountKit() {
     AccountKit.configure({
       theme: {
@@ -60,14 +53,11 @@ class Login extends Component {
 
   onLogin(token) {
     if (!token) {
-      console.warn('User canceled login')
+      //console.warn('User canceled login')
       this.setState({})
     } else {
       AccountKit.getCurrentAccount().then(account => {
-        this.setState({
-          authToken: token,
-          loggedAccount: account,
-        })
+        Actions.home({type:'reset'});
       })
     }
   }
@@ -84,61 +74,25 @@ class Login extends Component {
       .catch(e => this.onLoginError(e))
   }
 
-  onLogoutPressed() {
-    AccountKit.logout()
-      .then(() => {
-        this.setState({
-          authToken: null,
-          loggedAccount: null,
-        })
-      })
-      .catch(e => console.log('Failed to logout'))
-  }
-
-  renderUserLogged() {
-    const { id, email, phoneNumber } = this.state.loggedAccount
-
-    return (
-      <View>
-        <TouchableOpacity style={styles.button} onPress={() => this.onLogoutPressed()}>
-          <Text style={styles.buttonText}>Logout</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.label}>Account Kit Id</Text>
-        <Text style={styles.text}>{id}</Text>
-        <Text style={styles.label}>Email</Text>
-        <Text style={styles.text}>{email}</Text>
-        <Text style={styles.label}>Phone Number</Text>
-        <Text style={styles.text}>{phoneNumber ? `${phoneNumber.countryCode} ${phoneNumber.number}` : ''}</Text>
-      </View>
-    )
-  }
-
-  renderLogin() {
-    return (
-      <View>
-        <LoginButton
-          style={[styles.btn]}
-          type="phone"
-          onLogin={token => this.onLogin(token)}
-          onError={e => this.onLogin(e)}
-        >
-          <Text style={styles.buttonText}>SMS</Text>
-        </LoginButton>
-
-        <TouchableOpacity onPress={() => this.onEmailLoginPressed()}>
-          <Btn title="Login with email" color="rgba(0,0,0,0.5)"/>
-        </TouchableOpacity>
-      </View>
-    )
-  }
-
   render() {
     return (
-      <View style={styles.container}>{this.state.loggedAccount ? this.renderUserLogged() : this.renderLogin()}</View>
+      <View style={styles.container}>
+        <View>
+          <LoginButton
+            style={[styles.btn]}
+            type="phone"
+            onLogin={token => this.onLogin(token)}
+            onError={e => this.onLogin(e)}
+          >
+            <Text style={styles.buttonText}>SMS</Text>
+          </LoginButton>
+
+          <TouchableOpacity onPress={() => this.onEmailLoginPressed()}>
+            <Btn title="Login with email" color="rgba(0,0,0,0.5)"/>
+          </TouchableOpacity>
+        </View>
+      </View>
     )
   }
 }
-
-
 export default Login

@@ -24,12 +24,14 @@ class Join extends Component {
       <StatusBar backgroundColor={colors.secondary} hidden={false}/>
         <ScrollView>
           <Input placeholder="Name ..." icon="ios-person"/>
-          <Btn title="Continue"/>
+          <TouchableOpacity  onPress={()=>{Actions.login()}}>
+            <Btn title="Continue"/>
+          </TouchableOpacity>
           <View style={{padding:20,paddingTop:40}}>
-            <Text>Are you an instructor? </Text>
-              <TouchableOpacity onPress={()=>{Actions.login()}}>
+            {/*<Text>Are you an instructor? </Text>*}
+              {/*<TouchableOpacity >
                 <Text style={{color:colors.secondary}}>Teach the kids</Text>
-              </TouchableOpacity>
+              </TouchableOpacity>*/}
             
           </View>
         </ScrollView>
@@ -39,14 +41,11 @@ class Join extends Component {
 }
 function mapStateToProps (state) {
   return {
-    // appData: state.dataApp,
-    // count: state.counter
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    // getToken: (data) => dispatch(loadToken(data)),
   }
 }
 export default connect(

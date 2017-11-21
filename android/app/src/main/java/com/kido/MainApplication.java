@@ -3,6 +3,8 @@ package com.kido;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.github.yamill.orientation.OrientationPackage;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.brentvatne.react.ReactVideoPackage;
 import io.underscope.react.fbak.RNAccountKitPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new OrientationPackage(),
+            new ReactNativeYouTube(),
             new ReactVideoPackage(),
             new RNAccountKitPackage(),
             new VectorIconsPackage()

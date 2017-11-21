@@ -19,3 +19,16 @@ export default class Input extends React.Component {
     );
   }
 }
+export class SearchInput extends React.Component {
+  render() {
+    return (
+      <View style={{flex:1}}>
+      <View style={[styles.searchInputContainer,{borderColor:(this.props.error)?'red':'rgba(174, 0, 255, 1)',paddingLeft:20}]}>
+          <View style={{flex:12}}>
+          <TextInput placeholder={this.props.placeholder} style={{color: colors.input,padding:0,alignItems:'center',justifyContent:'center'}} maxLength={100} {...this.props} placeholderTextColor={colors.placeholder}  autoCorrect={false}/>
+          </View>
+      </View>
+      </View>
+    );
+  }
+}

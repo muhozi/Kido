@@ -31,6 +31,38 @@ const styles = StyleSheet.create({
     borderWidth:StyleSheet.hairlineWidth,
     borderRadius:50,
   },
+  searchInputContainer:{
+    flexDirection:'row',
+    //margin:8,
+    paddingBottom:1,
+    //paddingTop:1,
+    //paddingLeft:5,
+    backgroundColor:'#fff',
+    paddingLeft:0,
+    //marginTop:30,
+    //borderWidth:StyleSheet.hairlineWidth,
+    borderRadius:20,
+    borderTopRightRadius:0,
+    borderBottomRightRadius:0,
+    marginTop:0,
+    height:30,
+    alignItems:'center',
+    marginLeft:0,
+  },
+  closeInputButton:{
+    alignItems:'center',justifyContent:'center',backgroundColor:'rgba(255,255,255,0.3)',borderRadius:60,padding:3,width:40,height:30,marginRight:30,
+  },
+  searchInputButton:{
+    alignItems:'center',justifyContent:'center',backgroundColor:'#fff',borderRadius:60,padding:3,width:40,height:30,marginRight:25,borderTopLeftRadius:0,borderBottomLeftRadius:0
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor:'red'
+  },
   inputRow:{
     flex:1,
     justifyContent:'center',
@@ -51,7 +83,11 @@ const styles = StyleSheet.create({
   }
 
 });
+const variables = {
+  minWidth: StyleSheet.hairlineWidth,
+}
 export default styles;
 export{
-  colors
+  colors,
+  variables
 }
